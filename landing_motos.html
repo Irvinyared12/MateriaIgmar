@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conoce las diferencias entre las motocicletas deportivas y las Cafe Racer: diseño, comodidad, manejo y estilo.">
+  <title>Dos estilos, una pasión | Sport vs. Cafe Racer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0c0d0e;
+      --panel: #151719;
+      --muted: #a7abad;
+      --text: #f4f3ef;
+      --orange: #ff5a24;
+      --line: rgba(255,255,255,.12);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: "DM Sans", sans-serif; line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, 90%); margin: auto; }
+    .topbar {
+      position: absolute; z-index: 5; top: 0; left: 0; width: 100%;
+      border-bottom: 1px solid rgba(255,255,255,.15);
+    }
+    nav { height: 76px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: "Barlow Condensed", sans-serif; font-size: 1.55rem; font-weight: 900; letter-spacing: 2px; }
+    .logo span { color: var(--orange); }
+    .navlinks { display: flex; gap: 30px; color: #d0d0ce; font-size: .85rem; }
+    .navlinks a:hover { color: var(--orange); }
+    .hero {
+      min-height: 690px; display: flex; align-items: center; position: relative; overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(7,8,9,.96) 0%, rgba(7,8,9,.78) 48%, rgba(7,8,9,.2) 100%),
+        linear-gradient(0deg, var(--bg) 0%, transparent 30%),
+        url("https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=2000&q=85") center 55%/cover;
+    }
+    .hero-content { position: relative; z-index: 1; padding-top: 80px; max-width: 690px; }
+    .eyebrow { color: var(--orange); font-size: .75rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; }
+    h1, h2, h3 { font-family: "Barlow Condensed", sans-serif; text-transform: uppercase; line-height: .95; }
+    h1 { font-size: clamp(4rem, 9vw, 7.8rem); margin: 22px 0; letter-spacing: -2px; }
+    h1 span { color: var(--orange); }
+    .hero p { color: #d0d1d0; max-width: 510px; font-size: 1.05rem; }
+    .btn {
+      display: inline-block; margin-top: 32px; padding: 14px 23px; background: var(--orange);
+      color: #111; font-weight: 800; font-size: .8rem; letter-spacing: 1px; text-transform: uppercase;
+      transition: .2s;
+    }
+    .btn:hover { transform: translateY(-3px); background: #ff784b; }
+    .hero-note { margin-top: 55px; color: #aeb0b1; font-size: .72rem; letter-spacing: 2px; text-transform: uppercase; }
+    section { padding: 105px 0; }
+    .section-head { max-width: 650px; margin-bottom: 48px; }
+    .section-head h2 { font-size: clamp(2.8rem, 6vw, 4.8rem); margin: 15px 0; }
+    .section-head p { color: var(--muted); }
+    .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .bike-card {
+      min-height: 460px; position: relative; overflow: hidden; display: flex; align-items: end;
+      background: #222; isolation: isolate;
+    }
+    .bike-card::before {
+      content: ""; position: absolute; inset: 0; z-index: -2; background-size: cover;
+      background-position: center; transition: transform .6s;
+    }
+    .bike-card:hover::before { transform: scale(1.05); }
+    .sport::before { background-image: url("https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1100&q=85"); }
+    .cafe::before { background-image: url("https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1100&q=85"); }
+    .bike-card::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, rgba(0,0,0,.95), transparent 75%); }
+    .card-copy { padding: 34px; }
+    .card-copy .number { color: var(--orange); font-size: .75rem; letter-spacing: 2px; font-weight: 700; }
+    .card-copy h3 { font-size: 3.4rem; margin: 10px 0; }
+    .card-copy p { color: #d3d3d0; max-width: 420px; }
+    .differences { background: #111315; }
+    .comparison { border-top: 1px solid var(--line); }
+    .compare-row {
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 25px;
+      padding: 23px 0; border-bottom: 1px solid var(--line); align-items: start;
+    }
+    .compare-row strong { color: var(--orange); font-size: .75rem; letter-spacing: 1.5px; text-transform: uppercase; }
+    .compare-row p { color: #c1c4c4; font-size: .93rem; }
+    .compare-row .category { color: var(--text); font-weight: 700; }
+    .style-section { text-align: center; }
+    .style-section .section-head { margin: 0 auto 45px; }
+    .style-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; text-align: left; }
+    .style-box { padding: 32px; background: var(--panel); border: 1px solid var(--line); }
+    .style-box h3 { font-size: 2.4rem; margin-bottom: 14px; }
+    .style-box p { color: var(--muted); }
+    .tag { display: inline-block; color: var(--orange); border: 1px solid rgba(255,90,36,.45); padding: 5px 9px; font-size: .68rem; letter-spacing: 1px; margin-bottom: 18px; text-transform: uppercase; }
+    .closing {
+      padding: 85px 0; background: linear-gradient(90deg, rgba(8,9,10,.94), rgba(8,9,10,.65)),
+      url("https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1800&q=80") center/cover;
+      text-align: center;
+    }
+    .closing h2 { font-size: clamp(3rem, 7vw, 5.8rem); max-width: 800px; margin: 15px auto; }
+    .closing p { color: #c5c7c7; }
+    footer { padding: 25px 0; color: #85898a; font-size: .75rem; border-top: 1px solid var(--line); }
+    footer .container { display: flex; justify-content: space-between; gap: 15px; }
+    @media (max-width: 700px) {
+      nav { height: 68px; }
+      .navlinks { gap: 13px; font-size: .72rem; }
+      .hero { min-height: 620px; background-position: 58% center; }
+      .intro-grid, .style-grid { grid-template-columns: 1fr; }
+      .bike-card { min-height: 390px; }
+      section { padding: 75px 0; }
+      .compare-row { grid-template-columns: 1fr; gap: 7px; }
+      .compare-row strong { margin-top: 8px; }
+      footer .container { flex-direction: column; }
+    }
+    @media (max-width: 420px) {
+      .navlinks { gap: 9px; }
+      .navlinks a { font-size: .66rem; }
+      .logo { font-size: 1.25rem; }
+      h1 { font-size: 3.65rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="container">
+      <a class="logo" href="#">RIDE<span>///</span> CULTURE</a>
+      <div class="navlinks">
+        <a href="#estilos">Estilos</a>
+        <a href="#diferencias">Diferencias</a>
+        <a href="#elige">¿Cuál elegir?</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="eyebrow">Dos máquinas. Dos filosofías.</div>
+          <h1>NO ES SOLO<br>UNA MOTO.<br>ES TU <span>ESTILO.</span></h1>
+          <p>De la adrenalina de una deportiva a la esencia clásica de una Cafe Racer: descubre qué hace única a cada motocicleta y cuál va más contigo.</p>
+          <a class="btn" href="#estilos">Explorar estilos&nbsp; ↘</a>
+          <div class="hero-note">Velocidad · Diseño · Libertad</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="estilos">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">01 / Conoce las protagonistas</div>
+          <h2>Dos formas de vivir<br>el camino.</h2>
+          <p>Aunque ambas comparten la pasión por las dos ruedas, nacieron con ideas distintas: una busca rendimiento y precisión; la otra, personalidad y una experiencia de conducción más clásica.</p>
+        </div>
+        <div class="intro-grid">
+          <article class="bike-card sport">
+            <div class="card-copy">
+              <div class="number">01 — PERFORMANCE</div>
+              <h3>Deportiva</h3>
+              <p>Diseñada para ofrecer velocidad, estabilidad y control. Su postura inclinada y su carenado aerodinámico reflejan su ADN de competición.</p>
+            </div>
+          </article>
+          <article class="bike-card cafe">
+            <div class="card-copy">
+              <div class="number">02 — CLASSIC SOUL</div>
+              <h3>Cafe Racer</h3>
+              <p>Inspirada en las motos clásicas personalizadas. Destaca por su estética minimalista, líneas limpias y carácter retro.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="differences" id="diferencias">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">02 / Cara a cara</div>
+          <h2>¿En qué se<br>diferencian?</h2>
+          <p>Estas son algunas de las características más importantes para distinguirlas. Recuerda que la comodidad y el rendimiento también dependen del modelo y su cilindrada.</p>
+        </div>
+        <div class="comparison">
+          <div class="compare-row">
+            <strong>Característica</strong><p class="category">Deportiva</p><p class="category">Cafe Racer</p>
+          </div>
+          <div class="compare-row">
+            <strong>Diseño</strong><p>Carrocería aerodinámica, carenados y apariencia agresiva.</p><p>Estilo retro, sencillo y con componentes visuales expuestos.</p>
+          </div>
+          <div class="compare-row">
+            <strong>Posición</strong><p>Generalmente inclinada hacia adelante, con apoyo en muñecas y piernas.</p><p>Depende de la modificación; suele llevar manillar bajo y postura compacta.</p>
+          </div>
+          <div class="compare-row">
+            <strong>Conducción</strong><p>Enfocada en precisión, aceleración y estabilidad a velocidades altas.</p><p>Orientada a una experiencia sencilla, personal y de estilo clásico.</p>
+          </div>
+          <div class="compare-row">
+            <strong>Comodidad</strong><p>Puede cansar en trayectos urbanos por la postura deportiva.</p><p>Varía mucho según el asiento, manillar y configuración.</p>
+          </div>
+          <div class="compare-row">
+            <strong>Personalidad</strong><p>Velocidad, tecnología y espíritu de pista.</p><p>Individualidad, nostalgia y cultura motociclista.</p>
+          </div>
+          <div class="compare-row">
+            <strong>Uso habitual</strong><p>Carretera, curvas y conducción deportiva, según el modelo.</p><p>Paseos urbanos y recorridos tranquilos, según su preparación.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="style-section" id="elige">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">03 / Tu siguiente ruta</div>
+          <h2>¿Cuál va contigo?</h2>
+          <p>No existe una opción mejor para todos. La elección depende de lo que buscas sentir cuando enciendes el motor.</p>
+        </div>
+        <div class="style-grid">
+          <article class="style-box">
+            <span class="tag">Elige deportiva si...</span>
+            <h3>Buscas adrenalina.</h3>
+            <p>Te atraen las líneas agresivas, la tecnología, la respuesta del motor y una conducción enfocada en el rendimiento.</p>
+          </article>
+          <article class="style-box">
+            <span class="tag">Elige Cafe Racer si...</span>
+            <h3>Buscas carácter.</h3>
+            <p>Te gusta lo clásico, los detalles personalizados y una motocicleta que destaque por su diseño y personalidad.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="container">
+        <div class="eyebrow">La carretera te espera</div>
+        <h2>EL ESTILO CAMBIA.<br>LA PASIÓN NO.</h2>
+        <p>Dos estilos diferentes, una misma libertad: rodar.</p>
+        <a class="btn" href="#estilos">Volver al inicio ↑</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <span>RIDE///CULTURE — Cultura sobre dos ruedas.</span>
+      <span>Proyecto académico · 2026</span>
+    </div>
+  </footer>
+</body>
+</html>
